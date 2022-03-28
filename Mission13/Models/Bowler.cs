@@ -19,6 +19,7 @@ namespace Mission13.Models
         public string BowlerState { get; set; }
         public string BowlerZip { get; set; }
         public string BowlerPhoneNumber { get; set; }
+        public int TeamID { get; set; }
         
 
     }

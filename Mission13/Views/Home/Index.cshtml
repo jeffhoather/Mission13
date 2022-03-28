@@ -6,7 +6,7 @@
 
 <h1>Contact List of Bowlers in League</h1>
 
-<table>
+<table class="table table-bordered">
 
     <thead>
         <tr>
@@ -18,8 +18,25 @@
             <td>State</td>
             <td>Zip</td>
             <td>Phone Number</td>
+            <td>Team Name</td>
         </tr>
     </thead>
+
+    <tbody>
+        @foreach (var x in Model)
+        {
+        <tr>
+            <td>@x.BowlerFirstName</td>
+            <td>@x.BowlerMiddleInit</td>
+            <td>@x.BowlerLastName</td>
+            <td>@x.BowlerAddress</td>
+            <td>@x.BowlerCity</td>
+            <td>@x.BowlerState</td>
+            <td>@x.BowlerZip</td>
+            <td>@x.BowlerPhoneNumber</td>
+        </tr>
+        }
+    </tbody>
 
 
 </table>

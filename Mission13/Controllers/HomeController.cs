@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Mission13.Models;
 using System;
@@ -20,7 +21,8 @@ namespace Mission13.Controllers
 
         public IActionResult Index()
         {
-            var blah = _context.Bowlers.ToList();
+            var blah = _context.Bowlers.Include(x => Team)
+                .ToList();
 
             return View(blah);
         }
