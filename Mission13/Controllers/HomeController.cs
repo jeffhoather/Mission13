@@ -77,6 +77,22 @@ namespace Mission13.Controllers
         }
 
 
+        public IActionResult Filter()
+        {
+            ViewBag.Teams = _context.Teams.ToList();
+            return View();
+        }
+
+        public IActionResult FilterView(int teamid)
+        {
+            List<Bowler> bowlers = _context.Bowlers
+                .Include(x => x.Team)
+                .Where(x => x.Team.TeamID == teamid)
+                .ToList();
+            ViewBag.Teams = _context.Teams.ToList();
+
+            return View(bowlers);
+        }
         
     }
 }

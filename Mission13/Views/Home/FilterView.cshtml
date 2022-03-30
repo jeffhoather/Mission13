@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Filtered View";
+}
+
+@model List<Bowler>
+
+<div>
+    <a class="border alert" asp-controller="Home" asp-action="Index">View All/Home</a>
+    <br /><br /><br />
+<div>
+
+</div>
+    <a class="border alert" asp-controller="Home" asp-action="Filter">Filter by Team</a>
+    <br />
+</div>
+<br />
+<br />
+<h1>
+    Team Name:
+    @foreach (var r in Model)
+    {
+        @r.Team.TeamName
+        break;
+    }
+</h1>
+
+<table class="table-bordered table-striped">
+    <thead class="font-weight-bold">
+
+        <tr class="text-center">
+            <td>First Name</td>
+            <td>Middle Initial</td>
+            <td>Last Name</td>
+            <td>Address</td>
+            <td>City</td>
+            <td>State</td>
+            <td>Zip</td>
+            <td>Phone Number</td>
+            <td>Team Name</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var r in Model)
+        {
+            <tr class="text-center">
+                <td>@r.BowlerFirstName</td>
+                <td>@r.BowlerMiddleInit</td>
+                <td>@r.BowlerLastName</td>
+                <td>@r.BowlerAddress</td>
+                <td>@r.BowlerCity</td>
+                <td>@r.BowlerState</td>
+                <td>@r.BowlerZip</td>
+                <td>@r.BowlerPhoneNumber</td>
+                <td class="bg-primary">@r.Team.TeamName</td>
+            </tr>
+        }
+    </tbody>
+</table>
