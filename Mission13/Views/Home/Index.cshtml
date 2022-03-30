@@ -6,9 +6,9 @@
 
 <h1>Contact List of Bowlers in League</h1>
 
-<table class="table table-bordered">
+<table class="table table-bordered table-striped">
 
-    <thead>
+    <thead class="bold">
         <tr>
             <td>First Name</td>
             <td>Middle Initial</td>
@@ -34,9 +34,17 @@
             <td>@x.BowlerState</td>
             <td>@x.BowlerZip</td>
             <td>@x.BowlerPhoneNumber</td>
+            <td>@x.Team.TeamName</td>
+
+            <td><a asp-controller="Home" asp-action="Edit" asp-route-bowlerid="@x.BowlerID">Edit</a></td>
+            <td><a asp-controller="Home" asp-action="Delete" asp-route-bowlerid="@x.BowlerID">Delete</a></td>
         </tr>
         }
     </tbody>
 
 
 </table>
+
+<div class="btn btn-primary">
+    <a asp-controller="Home" asp-action="AddBowler">Add a Bowler</a>
+</div>
